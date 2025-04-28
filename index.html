@@ -24,7 +24,7 @@
 
           <ul class="list site-nav">
             <li class="item">
-              <a class="link" href="./index.html">Студія </a>
+              <a class="link active-link" href="./index.html">Студія </a>
             </li>
             <li class="item">
               <a class="link" href="./portfolio.html">Портфоліо</a>
@@ -58,21 +58,23 @@
 
     <main>
       <section class="hero">
-        <!-- <div class="container"> -->
         <h1 class="hero-title">
           Ефективні рішення для <br />
           вашого бізнесу
         </h1>
-        <button class="button-primary button-hero" type="button">
+        <button
+          data-modal-open
+          class="button-primary button-hero"
+          type="button"
+        >
           Замовити послугу
         </button>
-        <!-- </div> -->
       </section>
 
       <!-- advantages -->
       <section class="section advantages">
         <div class="container">
-          <h2 class="section-title">Переваги</h2>
+          <h2 class="section-title visually-hidden">Переваги</h2>
           <ul class="list">
             <li class="item">
               <div class="thumb">
@@ -132,11 +134,15 @@
           <ul class="list">
             <li class="item">
               <img src="./img/img1.jpg" width="370px" alt="Десктопні додатки" />
-              <h3>Десктопні додатки</h3>
+              <div class="activity-title-overlay">
+                <h3 class="activity-title">Десктопні додатки</h3>
+              </div>
             </li>
             <li class="item">
               <img src="./img/img2.jpg" width="370px" alt="Мобільні додатки" />
-              <h3>Мобільні додатки</h3>
+              <div class="activity-title-overlay">
+                <h3 class="activity-title">Мобільні додатки</h3>
+              </div>
             </li>
             <li class="item">
               <img
@@ -144,7 +150,9 @@
                 width="370px"
                 alt="Дизайнерські рішення"
               />
-              <h3>Дизайнерські рішення</h3>
+              <div class="activity-title-overlay">
+                <h3 class="activity-title">Дизайнерські рішення</h3>
+              </div>
             </li>
           </ul>
         </div>
@@ -428,5 +436,19 @@
         </div>
       </div>
     </footer>
+
+    <!-- MODAL WINDOW -->
+
+    <div data-modal class="backdrop is-hidden">
+      <div class="modal">
+        <div data-modal-close class="thumb">
+          <svg class="close-icon icon" width="18px" height="18px">
+            <use href="./img/icons.svg#icon-close"></use>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+    <script src="./js/modal.js"></script>
   </body>
 </html>
