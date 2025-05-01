@@ -33,6 +33,9 @@
   --third-icon-color: #afb1b8;
 
   --backdrop-color: #00000033;
+
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 250ms;
 }
 
 body {
@@ -118,13 +121,16 @@ input[type="radio"].visually-hidden {
   height: 100%;
 
   background-color: var(--backdrop-color);
+  opacity: 1;
+  transition: opacity var(--animation-duration) var(--timing-function),
+    visibility var(--animation-duration) var(--timing-function);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   min-width: 528px;
   min-height: 581px;
@@ -133,6 +139,12 @@ input[type="radio"].visually-hidden {
   background-color: var(--modal-background-color);
   box-shadow: 0px 2px 1px 0px #00000033, 0px 1px 1px 0px #00000024,
     0px 1px 3px 0px #0000001f;
+
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .modal .thumb {
@@ -175,6 +187,12 @@ input[type="radio"].visually-hidden {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+
+  transition: background-color var(--animation-duration) var(--timing-function);
+}
+
+.social-links-list .icon {
+  transition: fill var(--animation-duration) var(--timing-function);
 }
 
 .social-links-list .icon {
@@ -204,6 +222,10 @@ input[type="radio"].visually-hidden {
   line-height: 1.625;
   text-align: center;
   letter-spacing: inherit;
+
+  transition: color var(--animation-duration) var(--timing-function),
+    background-color var(--animation-duration) var(--timing-function),
+    box-shadow var(--animation-duration) var(--timing-function);
 }
 
 .button-primary {
@@ -281,6 +303,8 @@ input[type="radio"].visually-hidden {
   letter-spacing: 0.02em;
   text-decoration: none;
   font-style: normal;
+
+  transition: color var(--animation-duration) var(--timing-function);
 }
 
 .nav {
@@ -377,6 +401,8 @@ footer .link {
 
 .footer-adress .link {
   color: var(--footer-adress-text-color);
+
+  transition: color var(--animation-duration) var(--timing-function);
 }
 
 .footer-adress .location {
@@ -449,6 +475,7 @@ footer .link {
 }
 
 .button-hero {
+  vertical-align: middle;
   padding: 10px 32px;
   border: 0;
   border-radius: 4px;
@@ -458,7 +485,7 @@ footer .link {
   line-height: 1.875;
   letter-spacing: 0.06em;
 
-  vertical-align: middle;
+  box-shadow: 0px 4px 4px 0px #00000026;
 
   cursor: pointer;
 }
@@ -636,12 +663,16 @@ footer .link {
 
   background-position: center;
   background-repeat: no-repeat;
+
+  transition: border-color var(--animation-duration) var(--timing-function);
 }
 
 .our-clients .company-icon {
   /* width: 106px;
   height: 60px; */
   fill: var(--third-icon-color);
+
+  transition: fill var(--animation-duration) var(--timing-function);
 }
 
 .our-clients .item:not(:last-child) {
@@ -717,6 +748,8 @@ footer .link {
 
 .our-works-list .card-link {
   display: block;
+
+  transition: box-shadow var(--animation-duration) var(--timing-function);
 }
 
 .our-works-list .card-link:hover,
@@ -739,11 +772,14 @@ footer .link {
   height: 100%;
 
   background-color: var(--description-background-color);
+
+  transition: transform var(--animation-duration) var(--timing-function);
 }
 
 .card-link:hover .overlay,
 .card-link:focus .overlay {
-  top: 0;
+  /* top: 0; */
+  transform: translateY(-100%);
 }
 
 .thumb .description {
